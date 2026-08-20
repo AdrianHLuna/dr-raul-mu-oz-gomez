@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] py-10 px-6">
+    <div className="min-h-screen bg-brand-cream py-10 px-6">
       <div className="max-w-4xl mx-auto bg-white p-8 lg:p-12 rounded-[2rem] border border-slate-200/80 shadow-xl space-y-6">
         <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Aviso de Privacidad" }]} />
 
-        <h1 className="text-3xl font-black text-[#0A192F]">Aviso de Privacidad Integral</h1>
+        <h1 className="text-3xl font-black text-brand-panel font-heading">Aviso de Privacidad Integral</h1>
 
         <p className="text-slate-700 text-sm leading-relaxed font-medium">
           El <strong>{doctor.title} {doctor.name}</strong>, con domicilio en {doctor.address}, es responsable del tratamiento de sus datos personales y expedientes clínicos conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y la NOM-004-SSA3-2012 del Expediente Clínico.
@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
 
         <h2 className="text-xl font-bold text-slate-900 pt-4 border-t border-slate-100">1. Finalidad del Tratamiento de Datos</h2>
         <p className="text-slate-600 text-xs leading-relaxed">
-          Sus datos personales y datos personales sensibles (historial clínico, estudios tomográficos, antecedentes quirúrgicos, diagnóstico de laboratorio y datos de facturación) serán utilizados exclusivamente para prestar servicios de diagnóstico quirúrgico, tratamientos torácicos y cirugías.
+          Sus datos personales y datos personales sensibles (historial clínico, estudios de imagen, antecedentes quirúrgicos, diagnóstico de laboratorio y datos de facturación) serán utilizados exclusivamente para prestar servicios de diagnóstico y tratamiento de ortopedia, traumatología y artroscopia.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900 pt-4 border-t border-slate-100">2. Derechos ARCO</h2>

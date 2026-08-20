@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { doctor } from "@/data/doctor";
-import { FaShieldAlt, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaUniversity, FaBone } from "react-icons/fa";
+import { FaShieldAlt, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaUniversity, FaBone, FaInstagram, FaFacebookF, FaStethoscope } from "react-icons/fa";
 
 export default function Footer() {
   const whatsappUrl = `https://wa.me/${doctor.whatsapp.replace(/\D/g, "")}`;
@@ -31,6 +31,44 @@ export default function Footer() {
           <p className="text-xs text-slate-400 max-w-2xl mx-auto mt-3 font-medium leading-relaxed">
             Instituto de Estudios Superiores de Chiapas (Céd. {doctor.cedula}) • Universidad Autónoma del Estado de México (Céd. {doctor.cedulaEspecialidad}) • Alta Especialidad en Artroscopia
           </p>
+
+          {(doctor.instagramUrl || doctor.facebookUrl || doctor.doctoraliaUrl) && (
+            <div className="flex items-center justify-center gap-3 mt-6">
+              {doctor.instagramUrl && (
+                <a
+                  href={doctor.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 rounded-xl bg-brand-panel border border-brand-border text-brand-gold flex items-center justify-center hover:bg-brand-gold hover:text-brand-carbon transition-colors"
+                >
+                  <FaInstagram size={16} />
+                </a>
+              )}
+              {doctor.facebookUrl && (
+                <a
+                  href={doctor.facebookUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                  className="w-10 h-10 rounded-xl bg-brand-panel border border-brand-border text-brand-gold flex items-center justify-center hover:bg-brand-gold hover:text-brand-carbon transition-colors"
+                >
+                  <FaFacebookF size={16} />
+                </a>
+              )}
+              {doctor.doctoraliaUrl && (
+                <a
+                  href={doctor.doctoraliaUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Doctoralia"
+                  className="w-10 h-10 rounded-xl bg-brand-panel border border-brand-border text-brand-gold flex items-center justify-center hover:bg-brand-gold hover:text-brand-carbon transition-colors"
+                >
+                  <FaStethoscope size={16} />
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {/* ─── FOOTER NAVIGATION & CONTACT COLUMNS ────────────────────────────── */}

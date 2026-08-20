@@ -4,7 +4,8 @@ import { services } from "@/data/services";
 import { symptoms } from "@/data/symptoms";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://drraulvega.com";
+  // TODO: reemplazar por el dominio real de producción cuando esté disponible.
+  const baseUrl = "https://www.drraulmunozgomez.com";
 
   const staticPages = [
     "",

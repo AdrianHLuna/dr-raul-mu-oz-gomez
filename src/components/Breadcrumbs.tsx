@@ -21,13 +21,13 @@ export default function Breadcrumbs({ items, isDark = false }: BreadcrumbsProps)
 
           return (
             <li key={idx} className="flex items-center gap-2">
-              {idx > 0 && <FaChevronRight size={10} className="text-[#00A896]" />}
+              {idx > 0 && <FaChevronRight size={10} className="text-brand-gold" />}
               {isLast || !item.href ? (
                 <span
                   className={
                     isDark
-                      ? "text-white font-extrabold underline decoration-[#00A896] decoration-2 underline-offset-4"
-                      : "text-[#0A192F] font-bold underline decoration-[#00A896] decoration-2 underline-offset-4"
+                      ? "text-white font-extrabold underline decoration-brand-gold decoration-2 underline-offset-4"
+                      : "text-brand-panel font-bold underline decoration-brand-gold decoration-2 underline-offset-4"
                   }
                 >
                   {item.label}
@@ -38,7 +38,7 @@ export default function Breadcrumbs({ items, isDark = false }: BreadcrumbsProps)
                   className={
                     isDark
                       ? "text-slate-300 hover:text-white transition-colors"
-                      : "text-slate-500 hover:text-[#0A192F] transition-colors"
+                      : "text-slate-500 hover:text-brand-panel transition-colors"
                   }
                 >
                   {item.label}

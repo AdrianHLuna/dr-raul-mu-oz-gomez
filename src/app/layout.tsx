@@ -4,17 +4,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import { doctor } from "@/data/doctor";
+import { metropolis } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: `${doctor.title} ${doctor.name} | Cirujano de Tórax en CDMX`,
+  title: `${doctor.title} ${doctor.name} | ${doctor.specialistTitle}`,
   description: doctor.bio.substring(0, 160) + "...",
   keywords: [
-    `Cirujano de torax CDMX`,
-    `Cirujano toracico Angeles Lomas`,
-    `Cirugia toracica VATS CDMX`,
-    `Lobectomia pulmonar VATS CDMX`,
-    `Cancer de pulmon cirugia VATS`,
-    `Simpatectomia hiperhidrosis VATS`
+    `Traumatólogo en Tuxtla Gutiérrez`,
+    `Ortopedista Tuxtla Gutiérrez Chiapas`,
+    `Artroscopia de rodilla Chiapas`,
+    `Artroscopia de hombro Tuxtla Gutiérrez`,
+    `Prótesis de cadera y rodilla Chiapas`,
+    `Cirugía endoscópica de columna UBE Tuxtla`
   ],
   openGraph: {
     title: `${doctor.title} ${doctor.name} | ${doctor.specialistTitle}`,
@@ -31,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
-      <body className="antialiased flex flex-col min-h-screen bg-[#F8FAFC]">
+    <html lang="es" className={`scroll-smooth ${metropolis.variable}`}>
+      <body className="antialiased flex flex-col min-h-screen bg-brand-carbon">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

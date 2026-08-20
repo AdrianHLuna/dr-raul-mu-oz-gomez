@@ -57,11 +57,11 @@ export default async function SymptomDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F110D] text-slate-100 py-10 px-6 relative overflow-hidden">
+    <div className="min-h-screen bg-brand-carbon text-slate-100 py-10 px-6 relative overflow-hidden">
       <StructuredData data={schema} />
 
       {/* Background Accent */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-[#E7B93F]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-10 right-10 w-96 h-96 bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <Breadcrumbs
@@ -80,14 +80,14 @@ export default async function SymptomDetailPage({ params }: Props) {
           <div className="lg:col-span-8 space-y-8">
             
             {/* Hero Header Card */}
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 lg:p-10 border border-[#2B2F28] shadow-2xl relative overflow-hidden">
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 lg:p-10 border border-brand-border shadow-2xl relative overflow-hidden">
               <FaNotesMedical className="absolute bottom-[-20px] right-[-20px] text-white/5 text-[200px] pointer-events-none" />
               
-              <span className="text-xs font-black uppercase tracking-widest text-[#E7B93F] bg-[#E7B93F]/10 px-3.5 py-1 rounded-full border border-[#E7B93F]/30 inline-block mb-4">
+              <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30 inline-block mb-4">
                 Orientación Clínica al Paciente
               </span>
               
-              <h1 className="text-3xl lg:text-4xl font-black text-white leading-tight mb-4">
+              <h1 className="text-3xl lg:text-4xl font-black text-white font-heading leading-tight mb-4">
                 {symptom.name}
               </h1>
 
@@ -97,9 +97,9 @@ export default async function SymptomDetailPage({ params }: Props) {
             </div>
 
             {/* ¿Por qué consultar? */}
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-xl space-y-6">
-              <h2 className="text-xl font-black text-white flex items-center gap-3 border-b border-[#2B2F28] pb-4">
-                <FaExclamationTriangle className="text-[#E7B93F]" /> ¿Por qué requiere Valoración Especializada?
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
+              <h2 className="text-xl font-black text-white font-heading flex items-center gap-3 border-b border-brand-border pb-4">
+                <FaExclamationTriangle className="text-brand-gold" /> ¿Por qué requiere Valoración Especializada?
               </h2>
               <div className="p-6 rounded-2xl bg-amber-950/30 border border-amber-500/20 text-xs text-amber-100 font-semibold leading-relaxed">
                 {symptom.whyConsult}
@@ -108,18 +108,18 @@ export default async function SymptomDetailPage({ params }: Props) {
 
             {/* Enfermedades Relacionadas */}
             {relatedList.length > 0 && (
-              <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-xl space-y-6">
-                <h2 className="text-xl font-black text-white flex items-center gap-3 border-b border-[#2B2F28] pb-4">
-                  <FaBone className="text-[#E7B93F]" /> Condición o Lesiones Asociadas a este Síntoma
+              <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
+                <h2 className="text-xl font-black text-white font-heading flex items-center gap-3 border-b border-brand-border pb-4">
+                  <FaBone className="text-brand-gold" /> Condición o Lesiones Asociadas a este Síntoma
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {relatedList.map((disease) => (
                     <Link
                       key={disease.id}
                       href={`/enfermedades/${disease.slug}`}
-                      className="p-5 rounded-2xl bg-[#242820] border border-slate-800 hover:border-[#E7B93F] transition-all group block"
+                      className="p-5 rounded-2xl bg-brand-panel-alt border border-slate-800 hover:border-brand-gold transition-all group block"
                     >
-                      <h3 className="font-extrabold text-white text-sm group-hover:text-[#E7B93F] transition-colors mb-2">
+                      <h3 className="font-extrabold text-white text-sm group-hover:text-brand-gold transition-colors mb-2">
                         {disease.name}
                       </h3>
                       <p className="text-xs text-slate-400 line-clamp-2">
@@ -136,26 +136,26 @@ export default async function SymptomDetailPage({ params }: Props) {
           {/* FLOATING SIDEBAR APPOINTMENT DOCK (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-2xl sticky top-28 space-y-6">
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-2xl sticky top-28 space-y-6">
               
-              <div className="text-center pb-6 border-b border-[#2B2F28]">
-                <div className="w-16 h-16 rounded-2xl bg-[#E7B93F]/20 text-[#E7B93F] flex items-center justify-center font-black text-2xl mx-auto mb-3">
+              <div className="text-center pb-6 border-b border-brand-border">
+                <div className="w-16 h-16 rounded-2xl bg-brand-gold/20 text-brand-gold flex items-center justify-center font-black text-2xl mx-auto mb-3">
                   <FaCalendarCheck />
                 </div>
-                <h3 className="text-lg font-black text-white">Agendar Valoración</h3>
+                <h3 className="text-lg font-black text-white font-heading">Agendar Valoración</h3>
                 <p className="text-xs text-slate-400 mt-1 font-medium">
                   {doctor.title} {doctor.name}
                 </p>
-                <span className="inline-block mt-2 text-xs font-black text-[#E7B93F] bg-[#E7B93F]/10 px-3 py-1 rounded-full border border-[#E7B93F]/30">
+                <span className="inline-block mt-2 text-xs font-black text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30">
                   {doctor.specialistTitle}
                 </span>
               </div>
 
               {/* Consultation Info */}
-              <div className="space-y-3 text-xs text-slate-300 bg-[#242820] p-4 rounded-2xl border border-slate-800">
+              <div className="space-y-3 text-xs text-slate-300 bg-brand-panel-alt p-4 rounded-2xl border border-slate-800">
                 <div className="flex justify-between">
                   <span>Costo Consulta:</span>
-                  <span className="font-black text-[#E7B93F]">${doctor.consultationPrice} MXN</span>
+                  <span className="font-black text-brand-gold">${doctor.consultationPrice} MXN</span>
                 </div>
                 <div className="flex justify-between border-t border-slate-700/50 pt-2">
                   <span>Facilidad de Pago:</span>
@@ -173,20 +173,20 @@ export default async function SymptomDetailPage({ params }: Props) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-4 rounded-xl bg-[#E7B93F] text-[#1A1C17] font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-amber-300 transition-all shadow-xl"
+                  className="w-full py-4 rounded-xl bg-brand-gold text-brand-carbon font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-amber-300 transition-all shadow-xl"
                 >
                   <FaWhatsapp size={18} /> Consultar Síntoma por WhatsApp
                 </a>
                 <a
                   href={`tel:${doctor.phone}`}
-                  className="w-full py-3.5 rounded-xl bg-[#242820] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-slate-800 transition-all border border-slate-700"
+                  className="w-full py-3.5 rounded-xl bg-brand-panel-alt text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-slate-800 transition-all border border-slate-700"
                 >
-                  <FaPhoneAlt size={14} className="text-[#E7B93F]" /> Llamar: {doctor.phone}
+                  <FaPhoneAlt size={14} className="text-brand-gold" /> Llamar: {doctor.phone}
                 </a>
               </div>
 
               <div className="pt-2 text-center">
-                <Link href="/sintomas" className="text-xs text-slate-400 hover:text-[#E7B93F] font-bold flex items-center justify-center gap-2 transition-colors">
+                <Link href="/sintomas" className="text-xs text-slate-400 hover:text-brand-gold font-bold flex items-center justify-center gap-2 transition-colors">
                   <FaArrowLeft /> Volver al catálogo de síntomas
                 </Link>
               </div>

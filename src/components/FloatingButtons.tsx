@@ -15,7 +15,7 @@ export default function FloatingButtons() {
         href={`tel:${doctor.phone}`}
         whileHover={{ scale: 1.1, x: -4 }}
         whileTap={{ scale: 0.95 }}
-        className="w-13 h-13 rounded-full bg-[#0A192F] text-[#00A896] border border-[#00A896]/50 flex items-center justify-center shadow-xl hover:bg-[#172A45] transition-colors"
+        className="w-13 h-13 rounded-full bg-brand-panel text-brand-gold border border-brand-gold/50 flex items-center justify-center shadow-xl hover:bg-brand-panel-alt transition-colors"
         title="Llamar directamente al consultorio"
       >
         <FaPhoneAlt size={20} />

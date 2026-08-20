@@ -55,11 +55,11 @@ export default async function ServiceDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F110D] text-slate-100 py-10 px-6 relative overflow-hidden">
+    <div className="min-h-screen bg-brand-carbon text-slate-100 py-10 px-6 relative overflow-hidden">
       <StructuredData data={schema} />
 
       {/* Background Accent */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-[#E7B93F]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-10 right-10 w-96 h-96 bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <Breadcrumbs
@@ -78,11 +78,11 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="lg:col-span-8 space-y-8">
             
             {/* Hero Header Card */}
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 lg:p-10 border border-[#2B2F28] shadow-2xl relative overflow-hidden">
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 lg:p-10 border border-brand-border shadow-2xl relative overflow-hidden">
               <FaBone className="absolute bottom-[-20px] right-[-20px] text-white/5 text-[200px] pointer-events-none" />
               
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="text-xs font-black uppercase tracking-widest text-[#E7B93F] bg-[#E7B93F]/10 px-3.5 py-1 rounded-full border border-[#E7B93F]/30">
+                <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30">
                   Ficha Quirúrgica Ortopédica
                 </span>
                 <span className="text-xs font-bold text-amber-300 bg-amber-950/60 px-3.5 py-1 rounded-full border border-amber-800">
@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </span>
               </div>
               
-              <h1 className="text-3xl lg:text-4xl font-black text-white leading-tight mb-4">
+              <h1 className="text-3xl lg:text-4xl font-black text-white font-heading leading-tight mb-4">
                 {service.name}
               </h1>
 
@@ -100,14 +100,16 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
 
             {/* Beneficios Quirúrgicos */}
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-xl space-y-6">
-              <h2 className="text-xl font-black text-white flex items-center gap-3 border-b border-[#2B2F28] pb-4">
-                <FaCheckCircle className="text-[#E7B93F]" /> Beneficios y Ventajas Clínicas
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
+              <h2 className="text-xl font-black text-white font-heading flex items-center gap-3 border-b border-brand-border pb-4">
+                <FaCheckCircle className="text-brand-gold" /> Beneficios y Ventajas Clínicas
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-wrap gap-3">
                 {service.benefits.map((benefit, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-[#242820] border border-slate-800 flex items-start gap-3">
-                    <FaCheckCircle className="text-[#E7B93F] text-base mt-0.5 flex-shrink-0" />
+                  <div key={idx} className="flex items-center gap-2.5 pl-2 pr-4 py-2 rounded-full bg-brand-panel-alt border border-slate-800">
+                    <span className="w-6 h-6 rounded-full bg-brand-gold/15 text-brand-gold flex items-center justify-center flex-shrink-0">
+                      <FaCheckCircle size={12} />
+                    </span>
                     <span className="text-xs font-semibold text-slate-200">{benefit}</span>
                   </div>
                 ))}
@@ -115,14 +117,14 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
 
             {/* Indicaciones Clínicas */}
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-xl space-y-6">
-              <h2 className="text-xl font-black text-white flex items-center gap-3 border-b border-[#2B2F28] pb-4">
-                <FaExclamationTriangle className="text-[#E7B93F]" /> Indicaciones para la Intervención
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
+              <h2 className="text-xl font-black text-white font-heading flex items-center gap-3 border-b border-brand-border pb-4">
+                <FaExclamationTriangle className="text-brand-gold" /> Indicaciones para la Intervención
               </h2>
               <div className="space-y-3">
                 {service.indications?.map((indication, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-[#242820] border border-slate-800 flex items-start gap-3 text-xs text-slate-300 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#E7B93F] mt-2 flex-shrink-0" />
+                  <div key={idx} className="p-4 rounded-2xl bg-brand-panel-alt border border-slate-800 flex items-start gap-3 text-xs text-slate-300 font-medium">
+                    <span className="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0" />
                     <span>{indication}</span>
                   </div>
                 ))}
@@ -130,13 +132,13 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
 
             {/* Técnica Quirúrgica y Tiempo de Recuperación */}
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-xl space-y-6">
-              <h2 className="text-xl font-black text-white flex items-center gap-3 border-b border-[#2B2F28] pb-4">
-                <FaUserMd className="text-[#E7B93F]" /> Descripción de la Técnica y Tiempos de Recuperación
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
+              <h2 className="text-xl font-black text-white font-heading flex items-center gap-3 border-b border-brand-border pb-4">
+                <FaUserMd className="text-brand-gold" /> Descripción de la Técnica y Tiempos de Recuperación
               </h2>
               
-              <div className="p-6 rounded-2xl bg-[#242820] border border-slate-800 space-y-3">
-                <h3 className="font-extrabold text-[#E7B93F] text-sm uppercase tracking-wider">Técnica Ejecutada:</h3>
+              <div className="p-6 rounded-2xl bg-brand-panel-alt border border-slate-800 space-y-3">
+                <h3 className="font-extrabold text-brand-gold text-sm uppercase tracking-wider">Técnica Ejecutada:</h3>
                 <p className="text-xs text-slate-300 leading-relaxed font-medium">
                   {service.procedureDescription}
                 </p>
@@ -157,26 +159,26 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* FLOATING SIDEBAR APPOINTMENT DOCK (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             
-            <div className="bg-[#1A1C17] rounded-[2.5rem] p-8 border border-[#2B2F28] shadow-2xl sticky top-28 space-y-6">
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-2xl sticky top-28 space-y-6">
               
-              <div className="text-center pb-6 border-b border-[#2B2F28]">
-                <div className="w-16 h-16 rounded-2xl bg-[#E7B93F]/20 text-[#E7B93F] flex items-center justify-center font-black text-2xl mx-auto mb-3">
+              <div className="text-center pb-6 border-b border-brand-border">
+                <div className="w-16 h-16 rounded-2xl bg-brand-gold/20 text-brand-gold flex items-center justify-center font-black text-2xl mx-auto mb-3">
                   <FaCalendarCheck />
                 </div>
-                <h3 className="text-lg font-black text-white">Agendar Valoración</h3>
+                <h3 className="text-lg font-black text-white font-heading">Agendar Valoración</h3>
                 <p className="text-xs text-slate-400 mt-1 font-medium">
                   {doctor.title} {doctor.name}
                 </p>
-                <span className="inline-block mt-2 text-xs font-black text-[#E7B93F] bg-[#E7B93F]/10 px-3 py-1 rounded-full border border-[#E7B93F]/30">
+                <span className="inline-block mt-2 text-xs font-black text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30">
                   {doctor.specialistTitle}
                 </span>
               </div>
 
               {/* Consultation Info */}
-              <div className="space-y-3 text-xs text-slate-300 bg-[#242820] p-4 rounded-2xl border border-slate-800">
+              <div className="space-y-3 text-xs text-slate-300 bg-brand-panel-alt p-4 rounded-2xl border border-slate-800">
                 <div className="flex justify-between">
                   <span>Costo Consulta:</span>
-                  <span className="font-black text-[#E7B93F]">${doctor.consultationPrice} MXN</span>
+                  <span className="font-black text-brand-gold">${doctor.consultationPrice} MXN</span>
                 </div>
                 <div className="flex justify-between border-t border-slate-700/50 pt-2">
                   <span>Facilidad de Pago:</span>
@@ -194,20 +196,20 @@ export default async function ServiceDetailPage({ params }: Props) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-4 rounded-xl bg-[#E7B93F] text-[#1A1C17] font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-amber-300 transition-all shadow-xl"
+                  className="w-full py-4 rounded-xl bg-brand-gold text-brand-carbon font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-amber-300 transition-all shadow-xl"
                 >
                   <FaWhatsapp size={18} /> Agendar Cita WhatsApp
                 </a>
                 <a
                   href={`tel:${doctor.phone}`}
-                  className="w-full py-3.5 rounded-xl bg-[#242820] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-slate-800 transition-all border border-slate-700"
+                  className="w-full py-3.5 rounded-xl bg-brand-panel-alt text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-slate-800 transition-all border border-slate-700"
                 >
-                  <FaPhoneAlt size={14} className="text-[#E7B93F]" /> Llamar: {doctor.phone}
+                  <FaPhoneAlt size={14} className="text-brand-gold" /> Llamar: {doctor.phone}
                 </a>
               </div>
 
               <div className="pt-2 text-center">
-                <Link href="/servicios" className="text-xs text-slate-400 hover:text-[#E7B93F] font-bold flex items-center justify-center gap-2 transition-colors">
+                <Link href="/servicios" className="text-xs text-slate-400 hover:text-brand-gold font-bold flex items-center justify-center gap-2 transition-colors">
                   <FaArrowLeft /> Volver al catálogo de procedimientos
                 </Link>
               </div>

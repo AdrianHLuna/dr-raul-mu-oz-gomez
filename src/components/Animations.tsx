@@ -23,6 +23,16 @@ export const staggerContainerVariant: Variants = {
   },
 };
 
+export const slideInVariant = (fromX: number = -40): Variants => ({
+  hidden: { opacity: 0, x: fromX },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+});
+
+export const hoverLiftProps = {
+  whileHover: { y: -6 },
+  transition: { duration: 0.25, ease: "easeOut" as const },
+};
+
 export function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
