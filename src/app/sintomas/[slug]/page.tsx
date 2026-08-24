@@ -6,6 +6,7 @@ import { diseases } from "@/data/diseases";
 import { doctor } from "@/data/doctor";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
+import DiseaseCard from "@/components/cards/DiseaseCard";
 import { 
   FaBone, 
   FaCheckCircle, 
@@ -114,18 +115,7 @@ export default async function SymptomDetailPage({ params }: Props) {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {relatedList.map((disease) => (
-                    <Link
-                      key={disease.id}
-                      href={`/enfermedades/${disease.slug}`}
-                      className="p-5 rounded-2xl bg-brand-panel-alt border border-slate-800 hover:border-brand-gold transition-all group block"
-                    >
-                      <h3 className="font-extrabold text-white text-sm group-hover:text-brand-gold transition-colors mb-2">
-                        {disease.name}
-                      </h3>
-                      <p className="text-xs text-slate-400 line-clamp-2">
-                        {disease.shortDescription}
-                      </p>
-                    </Link>
+                    <DiseaseCard key={disease.id} disease={disease} />
                   ))}
                 </div>
               </div>

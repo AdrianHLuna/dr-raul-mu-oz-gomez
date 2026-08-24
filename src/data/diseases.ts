@@ -5,6 +5,7 @@ export const diseases: Disease[] = [
     id: "lesiones-de-ligamentos-de-la-rodilla",
     name: "Lesiones de Ligamentos de la Rodilla (LCA y LCP)",
     slug: "lesiones-de-ligamentos-de-la-rodilla",
+    image: "/enfermedades/lesiones-ligamentos-rodilla.jpg",
     shortDescription: "Rupturas del ligamento cruzado anterior (LCA) o posterior (LCP) producidas por giros bruscos, traumatismos o práctica deportiva.",
     description: "Las lesiones de los ligamentos cruzados (anterior y posterior) y colaterales de la rodilla ocurren frecuentemente por desaceleraciones repentinas, cambios de dirección en el deporte o contusiones directas. Producen inestabilidad articular severa, chasquido audible y chasquidos con falseo de la articulación.",
     symptoms: [
@@ -43,6 +44,7 @@ export const diseases: Disease[] = [
     id: "lesiones-de-los-meniscos-de-la-rodilla",
     name: "Lesiones de los Meniscos de la Rodilla",
     slug: "lesiones-de-los-meniscos-de-la-rodilla",
+    image: "/enfermedades/lesiones-meniscos-rodilla.jpg",
     shortDescription: "Desgarros en las almohadillas fibrocartilaginosas que amortiguan la rodilla, ocasionando dolor al agacharse, chasquidos y bloqueo mecánico.",
     description: "Los meniscos medial y lateral son estructuras de fibrocartílago esenciales para amortiguar el peso del cuerpo y estabilizar la articulación de la rodilla. Las roturas meniscales pueden ocurrir en atletas por torsión o en adultos mayores por desgaste degenerativo progresivo.",
     symptoms: [
@@ -81,6 +83,7 @@ export const diseases: Disease[] = [
     id: "rotura-de-tendones-del-manguito-rotador",
     name: "Rotura de Tendones del Manguito Rotador del Hombro",
     slug: "rotura-de-tendones-del-manguito-rotador",
+    image: "/enfermedades/rotura-tendones-manguito.jpg",
     shortDescription: "Desgarros parciales o totales de los tendones del hombro, ocasionando dolor nocturno persistente y pérdida de fuerza para levantar el brazo.",
     description: "El manguito rotador es un grupo de 4 tendones (supraespinoso, infraespinoso, redondo menor y subescapular) que mantienen la cabeza del húmero dentro de la cavidad glenoidea. Sus rupturas provocan dolor nocturno incapacitante e imposibilidad para realizar tareas por encima de la cabeza.",
     symptoms: [
@@ -119,6 +122,7 @@ export const diseases: Disease[] = [
     id: "desgaste-de-articulaciones-rodilla-y-cadera",
     name: "Desgaste de Articulaciones (Osteoartrosis de Rodilla y Cadera)",
     slug: "desgaste-de-articulaciones-rodilla-y-cadera",
+    image: "/enfermedades/gonartrosis.jpg",
     shortDescription: "Deterioro progresivo del cartílago articular en rodilla o cadera, produciendo dolor crónico, rigidez al levantarse y limitación para caminar.",
     description: "La gonartrosis (desgaste de rodilla) y coxartrosis (desgaste de cadera) son condiciones degenerativas donde el cartílago que recubre las articulaciones se desgasta progresivamente hasta provocar fricción hueso con hueso, deformidad, dolor crónico e incapacidad funcional severa.",
     symptoms: [
@@ -157,6 +161,7 @@ export const diseases: Disease[] = [
     id: "inestabilidad-de-las-articulaciones",
     name: "Inestabilidad de las Articulaciones (Hombro, Rodilla y Tobillo)",
     slug: "inestabilidad-de-las-articulaciones",
+    image: "/enfermedades/luxacion-hombro.jpg",
     shortDescription: "Sensación constante de luxación, zafamiento o falseo en el hombro, la rodilla o el tobillo tras esguinces o traumatismos repetitivos.",
     description: "La inestabilidad articular ocurre cuando los ligamentos, cápsula articular y rodetes labrales que sostienen una articulación se estiran o rompen, permitiendo que la articulación se desplace parcial (subluxación) o totalmente (luxación) fuera de su cavidad normal.",
     symptoms: [
@@ -195,6 +200,7 @@ export const diseases: Disease[] = [
     id: "sindrome-del-tunel-del-carpo",
     name: "Síndrome del Túnel del Carpo",
     slug: "sindrome-del-tunel-del-carpo",
+    image: "/enfermedades/tunel-carpiano.jpg",
     shortDescription: "Atrapamiento del nervio mediano a nivel de la muñeca, que produce adormecimiento, calambres en la mano y pérdida de fuerza.",
     description: "El síndrome del túnel carpiano es la neuropatía por compresión más común del miembro superior. Ocurre cuando el nervio mediano es comprimido al pasar por el estrecho canal del túnel carpiano en la muñeca, ocasionando parestesias, dolor nocturno e incapacidad para sujetar objetos pequeños.",
     symptoms: [
@@ -233,6 +239,7 @@ export const diseases: Disease[] = [
     id: "lesiones-de-la-articulacion-del-tobillo",
     name: "Lesiones de la Articulación del Tobillo",
     slug: "lesiones-de-la-articulacion-del-tobillo",
+    image: "/enfermedades/artrosis-tobillo.jpg",
     shortDescription: "Esguinces graves, desgarros ligamentarios y lesiones osteocondrales de la articulación del tobillo.",
     description: "El tobillo soporta todo el peso corporal durante la marcha y el deporte. Las torceduras violentas provocan desde esguinces con rotura del ligamento peroneoastragalino hasta lesiones osteocondrales en el astrágalo, produciendo inestabilidad crónica y dolor persistente al caminar.",
     symptoms: [
@@ -271,6 +278,7 @@ export const diseases: Disease[] = [
     id: "dolor-de-hombro",
     name: "Dolor de Hombro y Tendinitis Calcificante",
     slug: "dolor-de-hombro",
+    image: "/enfermedades/bursitis-hombro.jpg",
     shortDescription: "Inflamación aguda o depósitos de calcio en los tendones del hombro que generan dolor intenso y limitación funcional.",
     description: "El dolor de hombro abarca condiciones como la tendinitis del supraespinoso, la bursitis subacromial y la tendinitis calcificante. Los depósitos de calcio en el tendón generan un proceso inflamatorio sumamente doloroso que limita cualquier intento de elevar el brazo.",
     symptoms: [
@@ -309,6 +317,7 @@ export const diseases: Disease[] = [
     id: "dolor-de-rodilla",
     name: "Dolor de Rodilla y Condromalacia Patelar",
     slug: "dolor-de-rodilla",
+    image: "/enfermedades/coxartrosis.jpg",
     shortDescription: "Reblandecimiento del cartílago situado detrás de la rótula, común en jóvenes y deportistas, que causa dolor al subir escaleras.",
     description: "La condromalacia patelar y el síndrome de dolor patelofemoral ocurren cuando el cartílago articular bajo la rótula se reblandece o desgasta por mala alineación en su deslizamiento sobre el fémur, provocando ardor y chasquidos al doblar las rodillas.",
     symptoms: [
@@ -347,6 +356,7 @@ export const diseases: Disease[] = [
     id: "fracturas-oseas-y-traumatismos",
     name: "Fracturas Óseas y Traumatismos Articulares",
     slug: "fracturas-oseas-y-traumatismos",
+    image: "/enfermedades/fracturas-oseas.jpg",
     shortDescription: "Rupturas de huesos y lesiones traumáticas agudas en miembros superiores e inferiores que requieren fijación quirúrgica precisa.",
     description: "Las fracturas de fémur, tibia, húmero, radio y clavícula son emergencias traumatológicas causadas por impactos de alta energía o caídas. La osteosíntesis precisa mediante placas, tornillos o clavos intramedulares es fundamental para restaurar la alineación anatómica.",
     symptoms: [
@@ -385,6 +395,7 @@ export const diseases: Disease[] = [
     id: "lesiones-deportivas",
     name: "Lesiones Deportivas de Alto Rendimiento",
     slug: "lesiones-deportivas",
+    image: "/enfermedades/tendinitis-aquilea.jpg",
     shortDescription: "Traumatismos articular y muscular en atletas profesionales y recreativos que requieren retorno seguro a la cancha.",
     description: "Las lesiones deportivas abarcan roturas tendinosas, esguinces de alto grado, desgarros musculares y lesiones de cartílago. Requieren un abordaje especializado enfocado no solo en sanar la estructura, sino en permitir al deportista volver a su máximo rendimiento.",
     symptoms: [
@@ -423,6 +434,7 @@ export const diseases: Disease[] = [
     id: "pinzamiento-femoroacetabular-y-hernia-discal",
     name: "Pinzamiento Femoroacetabular y Hernia Discal Lumbar",
     slug: "pinzamiento-femoroacetabular-y-hernia-discal",
+    image: "/enfermedades/hernia-discal-lumbar.jpg",
     shortDescription: "Roce anómalo en la cadera o hernia en los discos de la columna que producen dolor en ingle o ciática irradiada.",
     description: "El pinzamiento de cadera (impingement femoroacetabular) y las hernias de disco lumbar ocasionan dolor en la ingle o compresión de raíces nerviosas con irradiación por la pierna (ciática). La tecnología de mínimainvasión permite resolver estas patologías con mínima agresión tisular.",
     symptoms: [

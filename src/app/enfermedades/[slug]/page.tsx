@@ -1,6 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { diseases } from "@/data/diseases";
 import { doctor } from "@/data/doctor";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -34,6 +35,9 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${disease.name} | ${doctor.title} ${doctor.name}`,
     description: disease.shortDescription,
+    openGraph: {
+      images: disease.image ? [disease.image] : [],
+    },
   };
 }
 
@@ -51,6 +55,7 @@ export default async function DiseaseDetailPage({ params }: Props) {
     "@type": "MedicalCondition",
     name: disease.name,
     description: disease.description,
+    image: disease.image ? `https://drraulmuñoz.com${disease.image}` : undefined,
     possibleTreatment: disease.treatments.map((t: string) => ({
       "@type": "MedicalProcedure",
       name: t,
@@ -81,21 +86,41 @@ export default async function DiseaseDetailPage({ params }: Props) {
           <div className="lg:col-span-8 space-y-8">
             
             {/* Hero Header Card */}
-            <div className="bg-brand-panel rounded-[2.5rem] p-8 lg:p-10 border border-brand-border shadow-2xl relative overflow-hidden">
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 lg:p-10 border border-brand-border shadow-2xl relative overflow-hidden space-y-6">
               <FaBone className="absolute bottom-[-20px] right-[-20px] text-white/5 text-[200px] pointer-events-none" />
               
-              <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30 inline-block mb-4">
-                Dossier de Evaluación Ortopédica
-              </span>
-              
-              <h1 className="text-3xl lg:text-4xl font-black text-white font-heading leading-tight mb-4">
-                {disease.name}
-              </h1>
+              {disease.image && (
+                <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-3xl overflow-hidden border border-brand-border shadow-inner group">
+                  <Image
+                    src={disease.image}
+                    alt={disease.name}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-panel via-brand-panel/30 to-transparent" />
+                  <span className="absolute top-4 left-4 text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-carbon/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-gold/30 shadow-lg">
+                    Fotografía Clínica Especializada
+                  </span>
+                </div>
+              )}
 
-              <p className="text-slate-300 text-base leading-relaxed font-medium">
-                {disease.description}
-              </p>
+              <div>
+                <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30 inline-block mb-4">
+                  Dossier de Evaluación Ortopédica
+                </span>
+                
+                <h1 className="text-3xl lg:text-4xl font-black text-white font-heading leading-tight mb-4">
+                  {disease.name}
+                </h1>
+
+                <p className="text-slate-300 text-base leading-relaxed font-medium">
+                  {disease.description}
+                </p>
+              </div>
             </div>
+
 
             {/* Cuadro Clínico y Síntomas */}
             <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
