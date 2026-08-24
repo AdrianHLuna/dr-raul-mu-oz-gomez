@@ -252,14 +252,15 @@ Suffixes: high-fidelity clinical photography, depth of field, 8k --ar 16:9 --v 6
 Negative Prompt: plastic, CGI, 3D render, text, watermark, blood, neon.
 ```
 
-### 10. Tratamiento Biológico y Terapia Ortopédica
+### 10. Liberación Quirúrgica del Síndrome del Túnel del Carpo
 ```text
-Photorealistic clinical shot of an orthopedic specialist preparing specialized biological therapy tubes in a modern centrifuge equipment area inside a high-end medical clinic.
+Photorealistic clinical image of a hand surgeon in sterile scrubs performing a minimally invasive endoscopic carpal tunnel release procedure on a wrist anatomical model in a modern operating room.
 
-Lighting: Clean bright laboratory studio lighting.
-Color Palette: Brand Dark Charcoal (#1A1C17), Brand Prestige Gold (#E7B93F), Clinical White, Amber.
-Suffixes: high-fidelity clinical photography, 8k --ar 16:9 --v 6.0
-Negative Prompt: blood, plastic, cartoon, CGI, text, watermark.
+Lighting: Clean, bright luxury medical studio lighting, soft shadows.
+Color Palette: Brand Dark Charcoal (#1A1C17), Brand Prestige Gold (#E7B93F), Clinical White, Silver.
+Composition: Focused clinical close-up view of the wrist and palm region.
+Suffixes: high-fidelity clinical photography, depth of field, 8k --ar 16:9 --v 6.0
+Negative Prompt: blood, plastic, cartoon, CGI, text, watermark, signature, neon.
 ```
 
 ---

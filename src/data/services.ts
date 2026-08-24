@@ -5,6 +5,7 @@ export const services: Service[] = [
     id: "artroscopia-de-rodilla",
     name: "Artroscopia de Rodilla (Reconstrucción de Ligamentos y Meniscos)",
     slug: "artroscopia-de-rodilla",
+    image: "/procedimientos/artroscopia-rodilla.jpg",
     shortDescription: "Técnica quirúrgica de mínima invasión para reparar desgarros de menisco y reconstruir el ligamento cruzado anterior (LCA) a través de microincisiones.",
     description: "La artroscopia de rodilla es la intervención quirúrgica de elección para reparar lesiones articulares internas sin necesidad de abrir la articulación. Mediante una diminuta cámara de alta resolución e instrumental especializado de 4 mm, el Dr. Raúl Muñoz realiza reconstrucciones ligamentarias precisas y suturas meniscales con pronta recuperación.",
     benefits: [
@@ -28,6 +29,7 @@ export const services: Service[] = [
     id: "artroscopia-de-hombro",
     name: "Artroscopia de Hombro (Reparación de Manguito Rotador y Labrum)",
     slug: "artroscopia-de-hombro",
+    image: "/procedimientos/artroscopia-hombro.jpg",
     shortDescription: "Cirugía artroscópica mínimamente invasiva para reacoplar los tendones rotos del manguito rotador y reparar luxaciones recurrentes de hombro.",
     description: "La artroscopia de hombro permite reparar los tendones supraespinoso e infraespinoso desinsertados del hueso húmero y resuturar el labrum glenoideo en luxaciones de repetidas. Evita el corte masivo de músculo, acelerando la recuperación de la movilidad del hombro.",
     benefits: [
@@ -51,6 +53,7 @@ export const services: Service[] = [
     id: "protesis-de-rodilla",
     name: "Prótesis y Reemplazo Total de Rodilla (Artroplastia de Rodilla)",
     slug: "protesis-de-rodilla",
+    image: "/procedimientos/protesis-rodilla.jpg",
     shortDescription: "Reemplazo articular completo con implantes de aleación médica de alta durabilidad para eliminar el dolor por desgaste articular (gonartrosis avanzada).",
     description: "El reemplazo total de rodilla sustituye las superficies óseas destruidas por el desgaste severo con un sistema protésico anatómico de cobalto-cromo y polietileno de ultra alto peso molecular. Devuelve la capacidad de caminar sin dolor a pacientes con artrosis avanzada.",
     benefits: [
@@ -74,6 +77,7 @@ export const services: Service[] = [
     id: "protesis-de-cadera",
     name: "Prótesis y Reemplazo Total de Cadera (Artroplastia de Cadera)",
     slug: "protesis-de-cadera",
+    image: "/procedimientos/protesis-cadera.jpg",
     shortDescription: "Sustitución de la articulación de la cadera con prótesis de titanio y cerámica para restaurar la movilidad sin dolor en desgaste o fracturas de fémur.",
     description: "La artroplastia total de cadera es considerada uno de los procedimientos quirúrgicos más exitosos de la medicina moderna. Reemplaza la cabeza femoral y el acetábulo desgastados con implantes biocompatibles de titanio, eliminando el dolor en ingle y muslo al caminar.",
     benefits: [
@@ -97,6 +101,7 @@ export const services: Service[] = [
     id: "cirugia-endoscopica-biportal-lumbar",
     name: "Cirugía Endoscópica Biportal Lumbar (UBE - Mínima Invasión de Columna)",
     slug: "cirugia-endoscopica-biportal-lumbar",
+    image: "/procedimientos/cirugia-lumbar.jpg",
     shortDescription: "Procedimiento endoscópico de ultra mínima invasión para descomprimir hernias discales y estenosis del canal lumbar sin cortar masa muscular.",
     description: "La Cirugía Endoscópica Biportal Lumbar (Unilateral Biportal Endoscopy - UBE) representa el estándar de oro en el abordaje mínimamente invasivo de la columna vertebral. Permite descompresionar las raíces nerviosas inflamadas por hernias de disco mediante dos incisiones de 5 mm e irrigación de suero continuo.",
     benefits: [
@@ -120,6 +125,7 @@ export const services: Service[] = [
     id: "osteosintesis-y-fijacion-de-fracturas",
     name: "Osteosíntesis y Fijación Quirúrgica de Fracturas Traumatológicas",
     slug: "osteosintesis-y-fijacion-de-fracturas",
+    image: "/procedimientos/osteosintesis-reduccion-fractura.jpg",
     shortDescription: "Reducción anatómica y fijación de huesos fracturados mediante placas, tornillos de titanio y clavos intramedulares de alta precisión.",
     description: "La osteosíntesis es la reconstrucción quirúrgica de huesos fracturados (fémur, tibia, húmero, radio, tobillo, clavícula) mediante material de osteosíntesis de grado médico. Garantiza una consolidación ósea sólida y en eje correcto, evitando acortamientos o deformidades.",
     benefits: [
@@ -143,6 +149,7 @@ export const services: Service[] = [
     id: "liberacion-quirurgica-del-tunel-del-carpo",
     name: "Liberación Quirúrgica del Síndrome del Túnel del Carpo",
     slug: "liberacion-quirurgica-del-tunel-del-carpo",
+    image: "/procedimientos/liberacion-tunel-carpo.jpg",
     shortDescription: "Descompresión quirúrgica del nervio mediano en la muñeca para eliminar el adormecimiento, calambres e incapacidad motora de la mano.",
     description: "La liberación del túnel carpiano es una cirugía ambulatoria altamente efectiva donde se secciona el ligamento transverso del carpo. Esto libera la presión compresiva sobre el nervio mediano, eliminando los calambres nocturnos y restaurando la sensibilidad de la mano.",
     benefits: [
@@ -166,6 +173,7 @@ export const services: Service[] = [
     id: "artroscopia-de-tobillo",
     name: "Artroscopia de Tobillo y Reconstrucción Ligamentaria",
     slug: "artroscopia-de-tobillo",
+    image: "/procedimientos/artroscopia-tobillo.jpg",
     shortDescription: "Reparación artroscópica de cartílago, limpieza de cuerpos libres y reconstrucción de ligamentos laterales del tobillo.",
     description: "La artroscopia de tobillo permite tratar afecciones dentro de la articulación tibioperoneoastragalina. Es ideal para reparar desgarros ligamentarios por esguinces crónicos repetidos y corregir lesiones del cartílago del astrágalo con mínima agresión.",
     benefits: [
@@ -189,6 +197,7 @@ export const services: Service[] = [
     id: "infiltracion-y-viscosuplementacion-articular",
     name: "Infiltración y Viscosuplementación Articular Guiada",
     slug: "infiltracion-y-viscosuplementacion-articular",
+    image: "/procedimientos/viscosuplementacion-infiltracion-articular.jpg",
     shortDescription: "Aplicación intraarticular de ácido hialurónico de alta densidad para lubricar las articulaciones y proteger el cartílago en fases iniciales.",
     description: "La viscosuplementación es un procedimiento no quirúrgico de consultorio que consiste en inyectar ácido hialurónico purificado de alto peso molecular dentro de la articulación de la rodilla, cadera u hombro. Actúa como un lubricante y amortiguador biomecánico natural que reduce la fricción y el dolor.",
     benefits: [
@@ -212,6 +221,7 @@ export const services: Service[] = [
     id: "artroscopia-y-lesiones-deportivas",
     name: "Artroscopia Diagnóstica y Tratamiento de Lesiones Deportivas",
     slug: "artroscopia-y-lesiones-deportivas",
+    image: "/procedimientos/reparacion-manguito.jpg",
     shortDescription: "Evaluación y tratamiento integral artroscópico para atletas con lesiones ligamentarias, meniscales o de cartílago de alto rendimiento.",
     description: "El abordaje de las lesiones deportivas combina la precisión de la cirugía artroscópica de mínima invasión con un protocolo de medicina del deporte enfocado en la pronta recuperación de la función motora, estabilidad articular y retorno seguro a la competencia.",
     benefits: [

@@ -1,6 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { services } from "@/data/services";
 import { doctor } from "@/data/doctor";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -34,6 +35,9 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${service.name} | ${doctor.title} ${doctor.name}`,
     description: service.shortDescription,
+    openGraph: {
+      images: service.image ? [service.image] : [],
+    },
   };
 }
 
@@ -51,6 +55,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     "@type": "MedicalProcedure",
     name: service.name,
     description: service.description,
+    image: service.image ? `https://drraulmuñoz.com${service.image}` : undefined,
     procedureType: service.isSurgical ? "SurgicalProcedure" : "NonInvasiveProcedure",
   };
 
@@ -78,26 +83,46 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="lg:col-span-8 space-y-8">
             
             {/* Hero Header Card */}
-            <div className="bg-brand-panel rounded-[2.5rem] p-8 lg:p-10 border border-brand-border shadow-2xl relative overflow-hidden">
+            <div className="bg-brand-panel rounded-[2.5rem] p-8 lg:p-10 border border-brand-border shadow-2xl relative overflow-hidden space-y-6">
               <FaBone className="absolute bottom-[-20px] right-[-20px] text-white/5 text-[200px] pointer-events-none" />
               
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30">
-                  Ficha Quirúrgica Ortopédica
-                </span>
-                <span className="text-xs font-bold text-amber-300 bg-amber-950/60 px-3.5 py-1 rounded-full border border-amber-800">
-                  {service.isSurgical ? "Cirugía de Alta Especialidad" : "Procedimiento de Consultorio"}
-                </span>
-              </div>
-              
-              <h1 className="text-3xl lg:text-4xl font-black text-white font-heading leading-tight mb-4">
-                {service.name}
-              </h1>
+              {service.image && (
+                <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-3xl overflow-hidden border border-brand-border shadow-inner group">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-panel via-brand-panel/30 to-transparent" />
+                  <span className="absolute top-4 left-4 text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-carbon/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-brand-gold/30 shadow-lg">
+                    Fotografía Quirúrgica / Procedimiento
+                  </span>
+                </div>
+              )}
 
-              <p className="text-slate-300 text-base leading-relaxed font-medium">
-                {service.description}
-              </p>
+              <div>
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30">
+                    Ficha Quirúrgica Ortopédica
+                  </span>
+                  <span className="text-xs font-bold text-amber-300 bg-amber-950/60 px-3.5 py-1 rounded-full border border-amber-800">
+                    {service.isSurgical ? "Cirugía de Alta Especialidad" : "Procedimiento de Consultorio"}
+                  </span>
+                </div>
+                
+                <h1 className="text-3xl lg:text-4xl font-black text-white font-heading leading-tight mb-4">
+                  {service.name}
+                </h1>
+
+                <p className="text-slate-300 text-base leading-relaxed font-medium">
+                  {service.description}
+                </p>
+              </div>
             </div>
+
 
             {/* Beneficios Quirúrgicos */}
             <div className="bg-brand-panel rounded-[2.5rem] p-8 border border-brand-border shadow-xl space-y-6">
