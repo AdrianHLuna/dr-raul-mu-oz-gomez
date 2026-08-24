@@ -25,7 +25,7 @@ export const doctor: Doctor = {
   experienceYears: 6,
   surgeriesCount: "+1,500",
   patientsCount: "+6,500",
-  logo: "/images/logo/Nuevo logo-02.png",
+  logo: "/images/logo/Nuevo logo-06.png",
   footerLogo: "/images/logo/Nuevo logo-03.png",
   photo: "/images/doctor-photo.jpg",
   heroImage: "/images/hero-artroscopia.jpg",

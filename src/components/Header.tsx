@@ -27,7 +27,7 @@ export default function Header() {
     { name: "Ubicación y Citas", href: "/contacto" },
   ];
 
-  const headerLogoSrc = "/images/logo/Nuevo logo-02.png";
+  const headerLogoSrc = doctor.logo || "/images/logo/Nuevo logo-06.png";
 
   return (
     <header className="sticky top-0 z-50 bg-[#0F110D] border-b border-[#252923] text-white shadow-2xl">
@@ -58,14 +58,22 @@ export default function Header() {
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* BIG CLEAN LOGO IMAGE (Aprovechando cada píxel sin estorbos) */}
-        <Link href="/" className="flex items-center group py-1">
+        {/* LOGO IMAGE + BRAND TEXT (Ocupando todo el espacio con estética premium) */}
+        <Link href="/" className="flex items-center gap-3 sm:gap-4 group py-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={headerLogoSrc}
             alt={`Logotipo Oficial ${doctor.title} ${doctor.name}`}
-            className="h-12 sm:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-xl"
+            className="h-14 sm:h-18 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-2xl"
           />
+          <div className="flex flex-col justify-center">
+            <span className="text-white text-base sm:text-xl md:text-2xl font-black tracking-tight leading-tight group-hover:text-[#E7B93F] transition-colors">
+              {doctor.title} {doctor.name}
+            </span>
+            <span className="text-[#E7B93F] text-[10px] sm:text-xs font-extrabold uppercase tracking-wider leading-tight mt-0.5">
+              Reemplazos Articulares y Artroscopia
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}
