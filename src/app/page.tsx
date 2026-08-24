@@ -1,16 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import fs from "fs";
 import path from "path";
 import { doctor } from "@/data/doctor";
 import { diseases } from "@/data/diseases";
 import { services } from "@/data/services";
+import { symptoms } from "@/data/symptoms";
 import { testimonials } from "@/data/testimonials";
 import StructuredData from "@/components/StructuredData";
 import ServiceCard from "@/components/cards/ServiceCard";
 import DiseaseCard from "@/components/cards/DiseaseCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
+import { getSymptomIcon } from "@/lib/medicalIcons";
 import {
   FaBone,
   FaWhatsapp,
@@ -20,6 +23,7 @@ import {
   FaCheckCircle,
   FaArrowRight,
   FaShieldAlt,
+  FaExclamationTriangle,
 } from "react-icons/fa";
 
 export const metadata = {
@@ -253,10 +257,10 @@ export default function HomePage() {
             </Link>
           </FadeUp>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 md:auto-rows-fr">
-            {services.slice(0, 6).map((service, i) => (
-              <StaggerItem key={service.id} className={i === 0 ? "md:col-span-2 md:row-span-2" : ""}>
-                <ServiceCard service={service} featured={i === 0} />
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.slice(0, 6).map((service) => (
+              <StaggerItem key={service.id} className="h-full">
+                <ServiceCard service={service} />
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -293,28 +297,189 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 5. PAGOS & SEGUROS ─────────────────────────────────────── */}
-      <section className="py-16 px-6 bg-brand-panel text-white border-y border-brand-border">
-        <FadeUp className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-black uppercase tracking-widest text-brand-gold">
-              Facilidades de Pago &amp; Convenios
-            </span>
-            <h2 className="text-3xl font-black text-white font-heading">
-              Hasta 12 Meses Sin Intereses con BBVA &amp; Cobertura de Seguros
-            </h2>
-            <p className="text-slate-300 text-xs leading-relaxed font-medium">
-              Aceptamos tarjetas de crédito y débito, transferencias y pagos en efectivo. Atendemos a pacientes asegurados de todas las compañías ajustándonos al tabulador institucional.
-            </p>
-          </div>
-          <div className="lg:col-span-5 flex flex-wrap gap-3">
-            {doctor.insurances?.map((insurance, idx) => (
-              <span key={idx} className="bg-brand-panel-alt px-4 py-2 rounded-xl text-xs font-bold text-slate-200 border border-brand-border">
-                ✓ {insurance}
+      {/* ─── 4.5. SÍNTOMAS Y SEÑALES DE ALARMA ─────────────────────────── */}
+      <section className="py-20 px-6 bg-brand-carbon-soft border-t border-brand-border text-white">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-brand-border pb-8">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30 inline-flex items-center gap-1.5 mb-3">
+                <FaExclamationTriangle className="text-brand-gold" /> Orientación al Paciente
               </span>
-            ))}
+              <h2 className="text-3xl lg:text-4xl font-black text-white font-heading">
+                Síntomas y Señales de Alarma Ortopédica
+              </h2>
+            </div>
+            <Link
+              href="/sintomas"
+              className="px-6 py-3 rounded-xl bg-brand-gold text-brand-carbon font-black text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all flex items-center gap-2 self-start md:self-auto shadow-lg"
+            >
+              Ver Todos los Síntomas <FaArrowRight />
+            </Link>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {symptoms.slice(0, 6).map((symptom) => {
+              const Icon = getSymptomIcon(symptom.id);
+              return (
+                <StaggerItem key={symptom.id} className="h-full">
+                  <Link
+                    href={`/sintomas/${symptom.slug}`}
+                    className="group relative bg-brand-panel border border-brand-border rounded-3xl overflow-hidden hover:border-brand-gold transition-all duration-300 shadow-lg hover:shadow-2xl flex flex-col justify-between h-full"
+                  >
+                    {symptom.image && (
+                      <div className="relative w-full h-44 bg-brand-panel-alt overflow-hidden border-b border-brand-border">
+                        <Image
+                          src={symptom.image}
+                          alt={symptom.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 400px"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-panel via-brand-panel/20 to-transparent" />
+                        <div className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-brand-gold text-brand-carbon flex items-center justify-center text-base shadow-md">
+                          <Icon />
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="p-6 flex flex-col justify-between flex-1">
+                      <div>
+                        <h3 className="text-base font-black text-white mb-2 group-hover:text-brand-gold transition-colors font-heading leading-snug">
+                          {symptom.name}
+                        </h3>
+                        <p className="text-slate-300 text-xs leading-relaxed font-medium line-clamp-3 mb-4">
+                          {symptom.shortDescription}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-between text-xs font-bold text-brand-gold pt-3 border-t border-brand-border/60 group-hover:translate-x-0.5 transition-transform">
+                        <span>Ver Orientación Médica</span>
+                        <FaArrowRight size={12} />
+                      </div>
+                    </div>
+                  </Link>
+                </StaggerItem>
+              );
+            })}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ─── 5. COSTOS, MÉTODOS DE PAGO & SEGUROS ─────────────────────── */}
+      <section className="py-20 px-6 bg-brand-panel text-white border-y border-brand-border relative overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+          
+          {/* Header */}
+          <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-brand-border pb-8">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3.5 py-1 rounded-full border border-brand-gold/30 inline-block mb-3">
+                Transparencia &amp; Facilidades de Pago
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-black text-white font-heading">
+                Costo de Consulta, Métodos de Pago &amp; Seguros Médicos
+              </h2>
+            </div>
+          </FadeUp>
+
+          {/* Grid Layout: Consulta + Métodos de Pago + Seguros */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            {/* Box 1: Precio de Consulta (4 cols) */}
+            <FadeUp className="lg:col-span-4 bg-brand-panel-alt rounded-3xl p-7 border border-brand-border flex flex-col justify-between shadow-xl space-y-6">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30 inline-block mb-3">
+                  Honorarios Médicos
+                </span>
+                <h3 className="text-xl font-black text-white font-heading mb-4">
+                  Costo de Consulta de Valoración
+                </h3>
+                
+                <div className="space-y-4">
+                  <div className="p-4 rounded-2xl bg-brand-panel border border-brand-border flex items-center justify-between">
+                    <div>
+                      <span className="text-xs font-extrabold text-white block">Consulta Especializada</span>
+                      <span className="text-[11px] text-slate-400 font-medium">Primera valoración presencial</span>
+                    </div>
+                    <span className="text-xl font-black text-brand-gold font-heading">${doctor.consultationPrice} MXN</span>
+                  </div>
+
+                  {doctor.consultationFollowUpPrice && (
+                    <div className="p-4 rounded-2xl bg-brand-panel border border-brand-border flex items-center justify-between">
+                      <div>
+                        <span className="text-xs font-extrabold text-white block">Consulta de Seguimiento</span>
+                        <span className="text-[11px] text-slate-400 font-medium">Revaloración de tratamiento</span>
+                      </div>
+                      <span className="text-lg font-extrabold text-slate-300 font-heading">${doctor.consultationFollowUpPrice} MXN</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-[11px] text-emerald-300 font-medium flex items-center gap-2">
+                <FaCheckCircle className="text-emerald-400 text-base flex-shrink-0" />
+                <span>Facturación médica disponible para deducibilidad de impuestos.</span>
+              </div>
+            </FadeUp>
+
+            {/* Box 2: Métodos de Pago (4 cols) */}
+            <FadeUp delay={0.1} className="lg:col-span-4 bg-brand-panel-alt rounded-3xl p-7 border border-brand-border flex flex-col justify-between shadow-xl space-y-6">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30 inline-block mb-3">
+                  Formas de Pago
+                </span>
+                <h3 className="text-xl font-black text-white font-heading mb-2">
+                  Formas y Facilidades de Pago
+                </h3>
+                <p className="text-xs text-slate-300 font-medium mb-4 leading-relaxed">
+                  Aceptamos múltiples opciones para su comodidad en consultorio y procedimientos.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {doctor.paymentMethods?.map((method, idx) => (
+                    <div key={idx} className="p-3 rounded-xl bg-brand-panel border border-brand-border text-xs font-bold text-slate-200 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0" />
+                      <span>{method}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 text-xs font-extrabold text-brand-gold flex items-center justify-between">
+                <span>Hasta 12 MSI con Tarjetas BBVA</span>
+                <span className="text-white bg-brand-gold/20 px-2 py-0.5 rounded text-[10px]">BBVA</span>
+              </div>
+            </FadeUp>
+
+            {/* Box 3: Cobertura de Seguros (4 cols) */}
+            <FadeUp delay={0.2} className="lg:col-span-4 bg-brand-panel-alt rounded-3xl p-7 border border-brand-border flex flex-col justify-between shadow-xl space-y-6">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30 inline-block mb-3">
+                  Aseguradoras
+                </span>
+                <h3 className="text-xl font-black text-white font-heading mb-2">
+                  Seguros de Gastos Médicos
+                </h3>
+                <p className="text-xs text-slate-300 font-medium mb-4 leading-relaxed">
+                  Atendemos a pacientes asegurados ajustándonos al tabulador institucional.
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {doctor.insurances?.map((insurance, idx) => (
+                    <span key={idx} className="bg-brand-panel px-3 py-1.5 rounded-xl text-xs font-bold text-slate-200 border border-brand-border">
+                      ✓ {insurance}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border text-[11px] text-slate-300 font-medium">
+                <span className="text-brand-gold font-bold block mb-0.5">Atención por Reembolso e Informe Médico:</span>
+                Entregamos informe médico traumatológico y papelería completa para el trámite con su aseguradora.
+              </div>
+            </FadeUp>
+
           </div>
-        </FadeUp>
+        </div>
       </section>
 
       {/* ─── 6. TESTIMONIOS ─────────────────────────────────────────── */}
