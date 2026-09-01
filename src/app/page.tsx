@@ -35,6 +35,7 @@ export default function HomePage() {
   const whatsappUrl = `https://wa.me/${doctor.whatsapp.replace(/\D/g, "")}`;
   const initials = "RM";
   const hasPhoto = !!doctor.photo && fs.existsSync(path.join(process.cwd(), "public", doctor.photo));
+  const hasAboutPhoto = !!doctor.aboutPhoto && fs.existsSync(path.join(process.cwd(), "public", doctor.aboutPhoto));
 
   const schema = {
     "@context": "https://schema.org",
@@ -123,18 +124,20 @@ export default function HomePage() {
             </FadeUp>
           </div>
 
-          {/* Hero Right: panel de identidad (placeholder preparado para foto real) */}
+          {/* Hero Right: panel de identidad con foto real */}
           <div className="lg:col-span-5 flex justify-center">
             <FadeUp delay={0.15} className="relative w-full max-w-md">
               <div className="aspect-[3/4] rounded-[3rem] bg-gradient-to-tr from-brand-panel via-brand-panel-alt to-[#2E332A] border-2 border-brand-gold/50 shadow-2xl overflow-hidden relative group">
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-carbon via-transparent to-transparent z-10 opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-carbon via-transparent to-transparent z-10 opacity-70 pointer-events-none" />
 
                 {hasPhoto ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={doctor.photo}
                     alt={`${doctor.title} ${doctor.name}`}
-                    className="w-full h-full object-cover relative z-0"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-cover object-top relative z-0 group-hover:scale-105 transition-transform duration-700"
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-center p-8 relative z-0">
@@ -151,7 +154,7 @@ export default function HomePage() {
                   </div>
                 )}
 
-                <div className="absolute bottom-6 left-6 right-6 z-20 bg-brand-carbon/90 backdrop-blur-md p-4 rounded-2xl border border-brand-gold/30 text-xs font-semibold flex items-center justify-between">
+                <div className="absolute bottom-6 left-6 right-6 z-20 bg-brand-carbon/90 backdrop-blur-md p-4 rounded-2xl border border-brand-gold/30 text-xs font-semibold flex items-center justify-between shadow-xl">
                   <span className="text-white flex items-center gap-2">
                     <FaShieldAlt className="text-brand-gold" /> Céd. Ortopedia: {doctor.cedulaEspecialidad}
                   </span>
@@ -167,30 +170,69 @@ export default function HomePage() {
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <FadeUp className="lg:col-span-5">
-            <div className="aspect-[3/4] rounded-[3rem] bg-brand-panel border-2 border-brand-gold/40 p-4 shadow-2xl relative">
-              <div className="w-full h-full rounded-[2.5rem] bg-brand-panel-alt flex flex-col justify-between p-8 text-white relative overflow-hidden border border-brand-gold/20">
-                <FaBone className="absolute top-[-30px] right-[-30px] text-white/5 text-[180px] pointer-events-none" />
+            <div className="aspect-[3/4] rounded-[3rem] bg-brand-panel border-2 border-brand-gold/40 p-4 shadow-2xl relative group overflow-hidden">
+              {hasAboutPhoto ? (
+                <div className="w-full h-full rounded-[2.5rem] relative overflow-hidden border border-brand-gold/30 shadow-inner">
+                  <Image
+                    src={doctor.aboutPhoto!}
+                    alt={`${doctor.title} ${doctor.name} en consultorio`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-cover object-center relative z-0 group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-carbon via-brand-carbon/30 to-transparent z-10 pointer-events-none" />
 
-                <div className="space-y-4 relative z-10">
-                  <span className="px-3.5 py-1 rounded-full bg-brand-gold text-brand-carbon font-black text-xs uppercase tracking-widest inline-block">
-                    Semblanza Médica
-                  </span>
-                  <h3 className="text-2xl font-black text-white font-heading">{doctor.title} {doctor.name}</h3>
-                  <p className="text-xs text-brand-gold font-bold">Céd. Profesional: {doctor.cedula}</p>
-                </div>
+                  {/* Top Badge */}
+                  <div className="absolute top-5 left-5 z-20">
+                    <span className="px-3.5 py-1.5 rounded-full bg-brand-carbon/90 backdrop-blur-md border border-brand-gold/50 text-brand-gold font-black text-xs uppercase tracking-widest inline-block shadow-lg">
+                      Semblanza Médica
+                    </span>
+                  </div>
 
-                <div className="space-y-3 relative z-10 text-xs">
-                  <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border font-semibold text-slate-300">
-                    🎓 Médica: Inst. Estudios Sup. Chiapas
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border font-semibold text-slate-300">
-                    🎓 Especialidad: Univ. Autónoma del Edo. de Méx. (UAEM)
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border font-semibold text-amber-300">
-                    ⭐ Alta Especialidad: Artroscopia y Cirugía Articular
+                  {/* Credentials Overlay Card */}
+                  <div className="absolute bottom-5 left-5 right-5 z-20 bg-brand-carbon/90 backdrop-blur-md p-4 rounded-2xl border border-brand-gold/30 text-white space-y-2 shadow-2xl">
+                    <div>
+                      <h3 className="text-lg font-black text-white font-heading leading-tight">{doctor.title} {doctor.name}</h3>
+                      <p className="text-[11px] text-brand-gold font-extrabold uppercase">Céd. Profesional: {doctor.cedula}</p>
+                    </div>
+                    <div className="space-y-1.5 pt-1 text-[11px] border-t border-brand-border/60">
+                      <div className="font-semibold text-slate-200 flex items-center gap-1.5">
+                        <span>🎓 Médica: Inst. Estudios Sup. Chiapas</span>
+                      </div>
+                      <div className="font-semibold text-slate-200 flex items-center gap-1.5">
+                        <span>🎓 Especialidad: Univ. Autónoma Edo. Méx. (UAEM)</span>
+                      </div>
+                      <div className="font-extrabold text-amber-400 flex items-center gap-1.5">
+                        <span>⭐ Alta Especialidad: Artroscopia y Cirugía Articular</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="w-full h-full rounded-[2.5rem] bg-brand-panel-alt flex flex-col justify-between p-8 text-white relative overflow-hidden border border-brand-gold/20">
+                  <FaBone className="absolute top-[-30px] right-[-30px] text-white/5 text-[180px] pointer-events-none" />
+
+                  <div className="space-y-4 relative z-10">
+                    <span className="px-3.5 py-1 rounded-full bg-brand-gold text-brand-carbon font-black text-xs uppercase tracking-widest inline-block">
+                      Semblanza Médica
+                    </span>
+                    <h3 className="text-2xl font-black text-white font-heading">{doctor.title} {doctor.name}</h3>
+                    <p className="text-xs text-brand-gold font-bold">Céd. Profesional: {doctor.cedula}</p>
+                  </div>
+
+                  <div className="space-y-3 relative z-10 text-xs">
+                    <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border font-semibold text-slate-300">
+                      🎓 Médica: Inst. Estudios Sup. Chiapas
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border font-semibold text-slate-300">
+                      🎓 Especialidad: Univ. Autónoma del Edo. de Méx. (UAEM)
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-brand-panel border border-brand-border font-semibold text-amber-300">
+                      ⭐ Alta Especialidad: Artroscopia y Cirugía Articular
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </FadeUp>
 

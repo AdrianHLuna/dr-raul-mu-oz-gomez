@@ -93,6 +93,7 @@ export const DoctorProfileSchema = z.object({
   logo: z.string().optional(),
   footerLogo: z.string().optional(),
   heroImage: z.string().optional(),
+  aboutPhoto: z.string().optional(),
   bio: z.string(),
   philosophy: z.string().optional(),
   experience: z.array(z.any()).optional(),

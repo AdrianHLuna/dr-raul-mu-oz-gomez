@@ -29,6 +29,7 @@ export const doctor: Doctor = {
   footerLogo: "/images/logo/Nuevo logo-03.png",
   photo: "/images/doctor-photo.jpg",
   heroImage: "/images/hero-artroscopia.jpg",
+  aboutPhoto: "/images/doctor-aboutme.jpg",
   googleMapsUrl: "https://maps.app.goo.gl/KRobMfmSjXwwVHBRA",
   doctoraliaUrl: "https://na.doct.to/apkzi16z",
   instagramUrl: "https://www.instagram.com/dr.raul_tyo/",
