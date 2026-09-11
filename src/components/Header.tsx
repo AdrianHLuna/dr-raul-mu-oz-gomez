@@ -45,7 +45,7 @@ export default function Header() {
             </span>
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-bold">
-            <span>Céd. Ortopedia: {doctor.cedulaEspecialidad}</span>
+            <span>céd Prof: {doctor.cedula} | céd Esp: {doctor.cedulaEspecialidad} | COFEPRIS: {doctor.cofepris}</span>
             <span className="text-[#E7B93F]">|</span>
             <span className="text-emerald-400 flex items-center gap-1.5 font-extrabold">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>

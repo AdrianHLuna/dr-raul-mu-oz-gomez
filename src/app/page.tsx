@@ -156,7 +156,7 @@ export default function HomePage() {
 
                 <div className="absolute bottom-6 left-6 right-6 z-20 bg-brand-carbon/90 backdrop-blur-md p-4 rounded-2xl border border-brand-gold/30 text-xs font-semibold flex items-center justify-between shadow-xl">
                   <span className="text-white flex items-center gap-2">
-                    <FaShieldAlt className="text-brand-gold" /> Céd. Ortopedia: {doctor.cedulaEspecialidad}
+                    <FaShieldAlt className="text-brand-gold" /> céd Prof: {doctor.cedula} | céd Esp: {doctor.cedulaEspecialidad} | COFEPRIS: {doctor.cofepris}
                   </span>
                   <span className="text-emerald-400 font-extrabold">CMOT Validado</span>
                 </div>
@@ -193,7 +193,7 @@ export default function HomePage() {
                   <div className="absolute bottom-5 left-5 right-5 z-20 bg-brand-carbon/90 backdrop-blur-md p-4 rounded-2xl border border-brand-gold/30 text-white space-y-2 shadow-2xl">
                     <div>
                       <h3 className="text-lg font-black text-white font-heading leading-tight">{doctor.title} {doctor.name}</h3>
-                      <p className="text-[11px] text-brand-gold font-extrabold uppercase">Céd. Profesional: {doctor.cedula}</p>
+                      <p className="text-[11px] text-brand-gold font-extrabold uppercase">céd Prof: {doctor.cedula}, céd Esp: {doctor.cedulaEspecialidad}, COFEPRIS: {doctor.cofepris}</p>
                     </div>
                     <div className="space-y-1.5 pt-1 text-[11px] border-t border-brand-border/60">
                       <div className="font-semibold text-slate-200 flex items-center gap-1.5">
@@ -217,7 +217,7 @@ export default function HomePage() {
                       Semblanza Médica
                     </span>
                     <h3 className="text-2xl font-black text-white font-heading">{doctor.title} {doctor.name}</h3>
-                    <p className="text-xs text-brand-gold font-bold">Céd. Profesional: {doctor.cedula}</p>
+                    <p className="text-xs text-brand-gold font-bold">céd Prof: {doctor.cedula}, céd Esp: {doctor.cedulaEspecialidad}, COFEPRIS: {doctor.cofepris}</p>
                   </div>
 
                   <div className="space-y-3 relative z-10 text-xs">

@@ -15,9 +15,10 @@ export async function GET() {
 - **Especialidad:** ${doctor.specialty}
 - **Subespecialidad:** ${doctor.subspecialty}
 - **Título:** ${doctor.specialistTitle}
-- **Cédula profesional (Médico):** ${doctor.cedula}
-- **Cédula de especialidad (Ortopedia):** ${doctor.cedulaEspecialidad}
+- **céd Prof:** ${doctor.cedula}
+- **céd Esp:** ${doctor.cedulaEspecialidad}
 - **Alta especialidad:** ${doctor.cedulaSubespecialidad}
+- **Publicidad Médica COFEPRIS:** ${doctor.cofepris}
 - **Ubicación Consultorio:** ${doctor.address}, ${doctor.city}, ${doctor.state}, ${doctor.country}.
 - **Teléfono de Urgencias / Citas:** ${doctor.phone}
 - **WhatsApp:** ${doctor.whatsapp}

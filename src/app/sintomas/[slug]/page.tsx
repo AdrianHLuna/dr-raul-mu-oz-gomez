@@ -178,7 +178,7 @@ export default async function SymptomDetailPage({ params }: Props) {
                 </div>
                 <div className="border-t border-slate-700/50 pt-2 text-[11px] text-slate-400">
                   <p>Ubicación: Tuxtla Gutiérrez, Chiapas</p>
-                  <p className="mt-1">Céd. Ortopedia: {doctor.cedulaEspecialidad}</p>
+                  <p className="mt-1">céd Prof: {doctor.cedula}, céd Esp: {doctor.cedulaEspecialidad}, COFEPRIS: {doctor.cofepris}</p>
                 </div>
               </div>
 

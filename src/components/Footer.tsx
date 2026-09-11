@@ -29,7 +29,7 @@ export default function Footer() {
             {doctor.specialistTitle}
           </p>
           <p className="text-xs text-slate-400 max-w-2xl mx-auto mt-3 font-medium leading-relaxed">
-            Instituto de Estudios Superiores de Chiapas (Céd. {doctor.cedula}) • Universidad Autónoma del Estado de México (Céd. {doctor.cedulaEspecialidad}) • Alta Especialidad en Artroscopia
+            Instituto de Estudios Superiores de Chiapas (céd Prof: {doctor.cedula}) • Universidad Autónoma del Estado de México (céd Esp: {doctor.cedulaEspecialidad}) • COFEPRIS: {doctor.cofepris}
           </p>
 
           {(doctor.instagramUrl || doctor.facebookUrl || doctor.doctoraliaUrl) && (
@@ -146,6 +146,7 @@ export default function Footer() {
         {/* Bottom Disclaimer */}
         <div className="pt-8 border-t border-[#252923] text-center text-xs text-slate-500 space-y-2">
           <p>© {new Date().getFullYear()} {doctor.title} {doctor.name}. Todos los derechos reservados.</p>
+          <p className="text-[11px] text-slate-400 font-bold">COFEPRIS: {doctor.cofepris} • céd Prof: {doctor.cedula} • céd Esp: {doctor.cedulaEspecialidad}</p>
           <p className="max-w-3xl mx-auto text-[11px] text-slate-600 leading-relaxed">
             La información contenida en este sitio web tiene carácter informativo e instruccional sobre traumatología y ortopedia. No sustituye la consulta quirúrgica presencial directa. Sin prescripción ni recomendación de fármacos de patente en este sitio.
           </p>
